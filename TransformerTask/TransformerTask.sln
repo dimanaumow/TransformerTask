@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransformerStrategy", "Tran
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransformerStrategyTest", "TransformerStrategyTest\TransformerStrategyTest.csproj", "{508FB041-9BCA-40DD-B16F-48FD5839A9A1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransformerInheritanceTest", "TransformerInheritanceTest\TransformerInheritanceTest.csproj", "{B3E66B4D-04CF-4DA8-B8D1-20607C7498EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransformerInheritance", "TransformerInheritance\TransformerInheritance.csproj", "{7D1EDEC4-0977-4640-8E45-CC7759E9610D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{508FB041-9BCA-40DD-B16F-48FD5839A9A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{508FB041-9BCA-40DD-B16F-48FD5839A9A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{508FB041-9BCA-40DD-B16F-48FD5839A9A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3E66B4D-04CF-4DA8-B8D1-20607C7498EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3E66B4D-04CF-4DA8-B8D1-20607C7498EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3E66B4D-04CF-4DA8-B8D1-20607C7498EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3E66B4D-04CF-4DA8-B8D1-20607C7498EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D1EDEC4-0977-4640-8E45-CC7759E9610D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D1EDEC4-0977-4640-8E45-CC7759E9610D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D1EDEC4-0977-4640-8E45-CC7759E9610D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D1EDEC4-0977-4640-8E45-CC7759E9610D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
