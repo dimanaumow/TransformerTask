@@ -13,10 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="TransformerToWordTests\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\TransformerToIEEEPartial\TransformerToIEEEPartial.csproj" />
     <ProjectReference Include="..\TransformerToWordPartial\TransformerToWordPartial.csproj" />
   </ItemGroup>

@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace TransformerToWordPartial
 {
-    public partial class TransformerClient
-    { 
-        public Dictionary<char, string> Keys => new Dictionary<char, string>
+    public partial class Transformer
+    {
+        public static Dictionary<char, string> Keys => new Dictionary<char, string>
         {
                 { '0', "zero" },
                 { '1', "one" },
@@ -25,40 +26,41 @@ namespace TransformerToWordPartial
                 { '+', "plus" },
         };
 
-        public Dictionary<double, string> SpecialKeys => new Dictionary<double, string>
+        public static Dictionary<double, string> SpecialKeys => new Dictionary<double, string>
         {
-            { double.NaN, "NaN" },
+            { double.NaN, "Not a Number" },
             { double.PositiveInfinity, "Positive Infinity" },
             { double.NegativeInfinity, "Negative Infinity" },
             { double.Epsilon, "Double Epsilon" },
         };
 
-        public string TransformToWords(double number)
+        static partial void TransformByPredicate(ICollection<string> collection, double item)
         {
-            bool flag = this.SpecialKeys.TryGetValue(number, out string result);
+            bool flag = SpecialKeys.TryGetValue(item, out string result);
             if (flag)
             {
-                return result;
+                collection.Add(result);
             }
-
-            string value = number.ToString(CultureInfo.InvariantCulture);
-
-            var builder = new StringBuilder();
-            for (int i = 0; i < value.Length; i++)
+            else
             {
-                if (i == value.Length - 1)
+                string value = item.ToString(CultureInfo.InvariantCulture);
+
+                var builder = new StringBuilder();
+                for (int i = 0; i < value.Length; i++)
                 {
-                    builder.Append($"{this.Keys[value[i]]}");
-                    break;
+                    if (i == value.Length - 1)
+                    {
+                        builder.Append($"{Keys[value[i]]}");
+                        break;
+                    }
+
+                    builder.Append($"{Keys[value[i]]} ");
                 }
 
-                builder.Append($"{this.Keys[value[i]]} ");
+                result = builder.ToString();
+                collection.Add($"{result.Substring(0, 1).ToUpper(CultureInfo.InvariantCulture)}" +
+                    $"{(result.Length > 1 ? result.Substring(1) : string.Empty)}");
             }
-
-            result = builder.ToString();
-            return $"{result.Substring(0, 1).ToUpper(CultureInfo.InvariantCulture)}" +
-                $"{(result.Length > 1 ? result.Substring(1) : string.Empty)}";
         }
-
     }
 }
