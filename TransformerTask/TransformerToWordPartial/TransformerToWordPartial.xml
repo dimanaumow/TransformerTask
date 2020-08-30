@@ -4,5 +4,34 @@
         <name>TransformerToWordPartial</name>
     </assembly>
     <members>
+        <member name="T:TransformerToWordPartial.Transformer">
+            <summary>
+            Implement transformer class.
+            </summary>
+            <summary>
+            Implement transformer class.
+            </summary>
+        </member>
+        <member name="P:TransformerToWordPartial.Transformer.Keys">
+            <summary>
+            Gets dictionary, that maps each valid digit or character their valid word values.
+            </summary>
+            <value>Dictionary chars and strings.</value>
+        </member>
+        <member name="P:TransformerToWordPartial.Transformer.SpecialKeys">
+            <summary>
+            Gets dictionary, that maps each non-valid double numbers their text description.
+            </summary>
+            <value>Dictionary doubles and strings.</value>
+        </member>
+        <member name="M:TransformerToWordPartial.Transformer.Transform(System.Double[])">
+            <summary>
+            Transform each element of source array into its "word format".
+            </summary>
+            <param name="source">Source array.</param>
+            <returns>Array of "word format" of elements of source array.</returns>
+            <exception cref="T:System.ArgumentNullException">Throw if array is null.</exception>
+            <exception cref="T:System.ArgumentException">Throw if array is empty.</exception>
+        </member>
     </members>
 </doc>

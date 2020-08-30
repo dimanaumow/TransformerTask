@@ -4,5 +4,27 @@
         <name>TransformerToIEEEPartial</name>
     </assembly>
     <members>
+        <member name="T:TransformerToIEEEPartial.Transformer">
+            <summary>
+            Implement transformer class.
+            </summary>
+            <summary>
+            Implement transformer class.
+            </summary>
+        </member>
+        <member name="F:TransformerToIEEEPartial.Transformer.Bits">
+            <summary>
+            Count ob bits in byte.
+            </summary>
+        </member>
+        <member name="M:TransformerToIEEEPartial.Transformer.Transform(System.Double[])">
+            <summary>
+            Transform each elements of source array into its "ieee-754 format".
+            </summary>
+            <param name="source">Source array.</param>
+            <returns>Array of "ieee-754 format".</returns>
+            <exception cref="T:System.ArgumentNullException">Throws, when source array is null.</exception>
+            <exception cref="T:System.ArgumentException">Throws, when source array is empty.</exception>
+        </member>
     </members>
 </doc>

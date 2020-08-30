@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using System;
+using System.Linq;
 using TransformerToWordPartial;
 
 namespace TransformerPartialTests.TransformerToWordTests
@@ -34,6 +35,31 @@ namespace TransformerPartialTests.TransformerToWordTests
         {
             var transformer = new Transformer();
             return transformer.Transform(source);
+        }
+
+        [Test]
+        public void Transform_ArrayIsNull_ThrowArgumentNullException() => Assert.Throws<ArgumentNullException>(
+            () => new Transformer().Transform(null), "Array cannot be null.");
+
+        [Test]
+        public void Transform_ArrayIsEmpty_ThrowArgumentException() => Assert.Throws<ArgumentException>(
+            () => new Transformer().Transform(Array.Empty<double>()), "Array cannot be empty.");
+
+        [Test]
+        [Timeout(10_000)]
+        [Order(1)]
+        public void Transform_PerformanceTest()
+        {
+            const int sourceLenght = 1_000_000;
+
+            double[] source = Enumerable.Repeat(-23.809d, sourceLenght).ToArray();
+
+            string[] expected = Enumerable.Repeat("Minus two three point eight zero nine", sourceLenght).ToArray();
+
+            var transformer = new Transformer();
+            string[] actual = transformer.Transform(source);
+
+            CollectionAssert.AreEqual(expected, actual);
         }
     }
 }

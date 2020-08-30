@@ -1,4 +1,6 @@
 ﻿using NUnit.Framework;
+using System;
+using System.Linq;
 using TransformerToIEEEPartial;
 
 namespace TransformerPartialTests.TransformerToIEEETests
@@ -30,6 +32,31 @@ namespace TransformerPartialTests.TransformerToIEEETests
         {
             var transformer = new Transformer();
             return transformer.Transform(source);
+        }
+
+        [Test]
+        public void Transform_ArrayIsNull_ThrowArgumentNullException() => Assert.Throws<ArgumentNullException>(
+           () => new Transformer().Transform(null), "Array cannot be null.");
+
+        [Test]
+        public void Transform_ArrayIsEmpty_ThrowArgumentException() => Assert.Throws<ArgumentException>(
+            () => new Transformer().Transform(Array.Empty<double>()), "Array cannot be empty.");
+
+        [Timeout(2_500)]
+        [Order(1)]
+        [Test]
+        public void Transform_PerformanceTest()
+        {
+            const int sourceLenght = 1_000_000;
+
+            double[] source = Enumerable.Repeat(122.625, sourceLenght).ToArray();
+
+            string[] expected = Enumerable.Repeat("0100000001011110101010000000000000000000000000000000000000000000", sourceLenght).ToArray();
+
+            var transformer = new Transformer();
+            string[] actual = transformer.Transform(source);
+
+            CollectionAssert.AreEqual(expected, actual);
         }
     }
 }
