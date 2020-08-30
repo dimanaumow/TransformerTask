@@ -5,9 +5,16 @@ using System.Text;
 
 namespace TransformerToIEEEPartial
 {
+    /// <summary>
+    /// Implement transformer class.
+    /// </summary>
     public partial class Transformer
     {
+        /// <summary>
+        /// Count ob bits in byte.
+        /// </summary>
         public const int Bits = 8;
+
         static partial void TransformByPredicate(ICollection<string> collection, double item)
         {
             var converter = new ConvertDoubleToLong() { Double64Bits = item };
