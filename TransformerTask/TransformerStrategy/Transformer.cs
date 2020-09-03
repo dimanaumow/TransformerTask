@@ -1,9 +1,20 @@
 ﻿using System;
 
 namespace TransformerStrategy
-{   
+{
+    /// <summary>
+    /// Implement transform class.
+    /// </summary>
     public class Transformer
     {
+        /// <summary>
+        /// Transform elements according to a certain rule.
+        /// </summary>
+        /// <param name="source">Source array.</param>
+        /// <param name="transformer">Transformation rule.</param>
+        /// <returns>Array of "ieee-754 format".</returns>
+        /// <exception cref="ArgumentNullException">Throws, when source array is null.</exception>
+        /// <exception cref="ArgumentException">Throws, when source array is empty.</exception>
         public string[] Transform(double[] source, ITransformer transformer)
         {
             if (source is null)

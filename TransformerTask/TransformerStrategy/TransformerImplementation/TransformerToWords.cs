@@ -5,9 +5,16 @@ using System.Text;
 
 namespace TransformerStrategy.TransformerImplementation
 {
+    /// <summary>
+    /// Implement transformer class.
+    /// </summary>
     public class TransformerToWords : ITransformer
     {
-        public Dictionary<char, string> Keys => new Dictionary<char, string>
+        /// <summary>
+        /// Gets dictionary, that maps each valid digit or character their valid word values.
+        /// </summary>
+        /// <value>Dictionary chars and strings.</value>
+        public static Dictionary<char, string> Keys => new Dictionary<char, string>
         {
                 { '0', "zero" },
                 { '1', "one" },
@@ -25,7 +32,11 @@ namespace TransformerStrategy.TransformerImplementation
                 { '+', "plus" },
         };
 
-        public Dictionary<double, string> SpecialKeys => new Dictionary<double, string>
+        /// <summary>
+        /// Gets dictionary, that maps each non-valid double numbers their text description.
+        /// </summary>
+        /// <value>Dictionary doubles and strings.</value>
+        public static Dictionary<double, string> SpecialKeys => new Dictionary<double, string>
         {
             { double.NaN, "Not a Number" },
             { double.PositiveInfinity, "Positive Infinity" },
@@ -33,9 +44,14 @@ namespace TransformerStrategy.TransformerImplementation
             { double.Epsilon, "Double Epsilon" },
         };
 
+        /// <summary>
+        /// Transform element into its "word format".
+        /// </summary>
+        /// <param name="item">Source item.</param>
+        /// <returns>Transform string.</returns>
         public string Transform(double item)
         {
-            bool flag = this.SpecialKeys.TryGetValue(item, out string result);
+            bool flag = SpecialKeys.TryGetValue(item, out string result);
             if (flag)
             {
                 return result;
@@ -48,11 +64,11 @@ namespace TransformerStrategy.TransformerImplementation
             {
                 if (i == value.Length - 1)
                 {
-                    builder.Append($"{this.Keys[value[i]]}");
+                    builder.Append($"{Keys[value[i]]}");
                     break;
                 }
 
-                builder.Append($"{this.Keys[value[i]]} ");
+                builder.Append($"{Keys[value[i]]} ");
             }
 
             result = builder.ToString();

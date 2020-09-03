@@ -3,25 +3,36 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace TransformerStrategy.TransformerImplementation
+namespace TransformerInheritance.DerivedTransformers
 {
-    public class TransmerIEEE_754 : ITransformer
+    /// <summary>
+    /// Implement transformer class.
+    /// </summary>
+    public class TransformToIEEE754 : Transformer
     {
-        public const int bits = 8;
-        public string Transform(double item)
+        /// <summary>
+        /// Count ob bits in byte.
+        /// </summary>
+        public const int Bits = 8;
+
+        /// <summary>
+        /// Defines the "double to ieee-754" transformation rule.
+        /// </summary>
+        /// <param name="item">Double number.</param>
+        /// <returns>Transform string.</returns>
+        protected override string TransformAccordingToRule(double item)
         {
             var converter = new ConvertDoubleToLong() { Double64Bits = item };
             long longNumber = converter.Long64Bits;
 
-
-            var result = new StringBuilder(sizeof(long) * bits);
+            var result = new StringBuilder(sizeof(long) * Bits);
             long mask = 0b_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000001;
-            mask = mask << sizeof(long) * bits - 1;
+            mask = mask << ((sizeof(long) * Bits) - 1);
             long sample = mask;
             long temp;
             string twoBits = "01";
 
-            for (int i = 0; i < sizeof(long) * bits; i++)
+            for (int i = 0; i < sizeof(long) * Bits; i++)
             {
                 temp = mask & longNumber;
                 temp = temp << i;

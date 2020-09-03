@@ -5,9 +5,16 @@ using System.Text;
 
 namespace TransformerInheritance.DerivedTransformers
 {
+    /// <summary>
+    /// Implement transformer class.
+    /// </summary>
     public class TransformToWords : Transformer
     {
-        public Dictionary<char, string> Keys => new Dictionary<char, string>
+        /// <summary>
+        /// Gets dictionary, that maps each valid digit or character their valid word values.
+        /// </summary>
+        /// <value>Dictionary chars and strings.</value>
+        public static Dictionary<char, string> Keys => new Dictionary<char, string>
         {
                 { '0', "zero" },
                 { '1', "one" },
@@ -25,7 +32,11 @@ namespace TransformerInheritance.DerivedTransformers
                 { '+', "plus" },
         };
 
-        public Dictionary<double, string> SpecialKeys => new Dictionary<double, string>
+        /// <summary>
+        /// Gets dictionary, that maps each non-valid double numbers their text description.
+        /// </summary>
+        /// <value>Dictionary doubles and strings.</value>
+        public static Dictionary<double, string> SpecialKeys => new Dictionary<double, string>
         {
             { double.NaN, "Not a Number" },
             { double.PositiveInfinity, "Positive Infinity" },
@@ -33,9 +44,14 @@ namespace TransformerInheritance.DerivedTransformers
             { double.Epsilon, "Double Epsilon" },
         };
 
+        /// <summary>
+        /// Defines the "double to word" transformation rule.
+        /// </summary>
+        /// <param name="item">Double number.</param>
+        /// <returns>Transform string.</returns>
         protected override string TransformAccordingToRule(double item)
         {
-            bool flag = this.SpecialKeys.TryGetValue(item, out string result);
+            bool flag = SpecialKeys.TryGetValue(item, out string result);
             if (flag)
             {
                 return result;
@@ -48,11 +64,11 @@ namespace TransformerInheritance.DerivedTransformers
             {
                 if (i == value.Length - 1)
                 {
-                    builder.Append($"{this.Keys[value[i]]}");
+                    builder.Append($"{Keys[value[i]]}");
                     break;
                 }
 
-                builder.Append($"{this.Keys[value[i]]} ");
+                builder.Append($"{Keys[value[i]]} ");
             }
 
             result = builder.ToString();
