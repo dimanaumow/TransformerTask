@@ -8,7 +8,7 @@ namespace TransformerInheritance.DerivedTransformers
     /// <summary>
     /// Implement transformer class.
     /// </summary>
-    public class TransformToWords : Transformer
+    public class TransformerToWords : Transformer
     {
         /// <summary>
         /// Gets dictionary, that maps each valid digit or character their valid word values.

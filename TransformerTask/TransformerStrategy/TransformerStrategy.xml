@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TransformerStrategy</name>
+    </assembly>
+    <members>
+        <member name="T:TransformerStrategy.ITransformer">
+            <summary>
+            Provide the transformation.
+            </summary>
+        </member>
+        <member name="M:TransformerStrategy.ITransformer.Transform(System.Double)">
+            <summary>
+            Abstracts the transformation rule.
+            </summary>
+            <param name="item">Double item.</param>
+            <returns>Transform string.</returns>
+        </member>
+        <member name="T:TransformerStrategy.Transformer">
+            <summary>
+            Implement transform class.
+            </summary>
+        </member>
+        <member name="M:TransformerStrategy.Transformer.Transform(System.Double[],TransformerStrategy.ITransformer)">
+            <summary>
+            Transform elements according to a certain rule.
+            </summary>
+            <param name="source">Source array.</param>
+            <param name="transformer">Transformation rule.</param>
+            <returns>Array of "ieee-754 format".</returns>
+            <exception cref="T:System.ArgumentNullException">Throws, when source array is null.</exception>
+            <exception cref="T:System.ArgumentException">Throws, when source array is empty.</exception>
+        </member>
+        <member name="T:TransformerStrategy.TransformerImplementation.TransformerToWords">
+            <summary>
+            Implement transformer class.
+            </summary>
+        </member>
+        <member name="P:TransformerStrategy.TransformerImplementation.TransformerToWords.Keys">
+            <summary>
+            Gets dictionary, that maps each valid digit or character their valid word values.
+            </summary>
+            <value>Dictionary chars and strings.</value>
+        </member>
+        <member name="P:TransformerStrategy.TransformerImplementation.TransformerToWords.SpecialKeys">
+            <summary>
+            Gets dictionary, that maps each non-valid double numbers their text description.
+            </summary>
+            <value>Dictionary doubles and strings.</value>
+        </member>
+        <member name="M:TransformerStrategy.TransformerImplementation.TransformerToWords.Transform(System.Double)">
+            <summary>
+            Transform element into its "word format".
+            </summary>
+            <param name="item">Source item.</param>
+            <returns>Transform string.</returns>
+        </member>
+        <member name="T:TransformerStrategy.TransformerImplementation.TransmerIEEE754">
+            <summary>
+            Implement transformer class.
+            </summary>
+        </member>
+        <member name="F:TransformerStrategy.TransformerImplementation.TransmerIEEE754.Bits">
+            <summary>
+            Count of bits in byte.
+            </summary>
+        </member>
+        <member name="M:TransformerStrategy.TransformerImplementation.TransmerIEEE754.Transform(System.Double)">
+            <summary>
+            Transform elements into its "ieee-754 format".
+            </summary>
+            <param name="item">Source item.</param>
+            <returns>Transform item.</returns>
+        </member>
+    </members>
+</doc>

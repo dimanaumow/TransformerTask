@@ -29,7 +29,7 @@ namespace TransformerStrategy
 
             if (transformer is null)
             {
-                throw new ArgumentNullException($"{nameof(transformer)} cannot be null."); 
+                throw new ArgumentNullException($"{nameof(transformer)} cannot be null.");
             }
 
             var result = new string[source.Length];

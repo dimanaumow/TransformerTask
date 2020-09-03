@@ -8,7 +8,7 @@ namespace TransformerInheritance.DerivedTransformers
     /// <summary>
     /// Implement transformer class.
     /// </summary>
-    public class TransformToIEEE754 : Transformer
+    public class TransformerToIEEE754 : Transformer
     {
         /// <summary>
         /// Count ob bits in byte.

@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TransformerInheritance</name>
+    </assembly>
+    <members>
+        <member name="T:TransformerInheritance.DerivedTransformers.TransformerToIEEE754">
+            <summary>
+            Implement transformer class.
+            </summary>
+        </member>
+        <member name="F:TransformerInheritance.DerivedTransformers.TransformerToIEEE754.Bits">
+            <summary>
+            Count ob bits in byte.
+            </summary>
+        </member>
+        <member name="M:TransformerInheritance.DerivedTransformers.TransformerToIEEE754.TransformAccordingToRule(System.Double)">
+            <summary>
+            Defines the "double to ieee-754" transformation rule.
+            </summary>
+            <param name="item">Double number.</param>
+            <returns>Transform string.</returns>
+        </member>
+        <member name="T:TransformerInheritance.DerivedTransformers.TransformerToWords">
+            <summary>
+            Implement transformer class.
+            </summary>
+        </member>
+        <member name="P:TransformerInheritance.DerivedTransformers.TransformerToWords.Keys">
+            <summary>
+            Gets dictionary, that maps each valid digit or character their valid word values.
+            </summary>
+            <value>Dictionary chars and strings.</value>
+        </member>
+        <member name="P:TransformerInheritance.DerivedTransformers.TransformerToWords.SpecialKeys">
+            <summary>
+            Gets dictionary, that maps each non-valid double numbers their text description.
+            </summary>
+            <value>Dictionary doubles and strings.</value>
+        </member>
+        <member name="M:TransformerInheritance.DerivedTransformers.TransformerToWords.TransformAccordingToRule(System.Double)">
+            <summary>
+            Defines the "double to word" transformation rule.
+            </summary>
+            <param name="item">Double number.</param>
+            <returns>Transform string.</returns>
+        </member>
+        <member name="T:TransformerInheritance.Transformer">
+            <summary>
+            Describes the abstraction of transformer class.
+            </summary>
+        </member>
+        <member name="M:TransformerInheritance.Transformer.Transform(System.Double[])">
+            <summary>
+            Transform elements according to a certain rule.
+            </summary>
+            <param name="source">Source array.</param>
+            <returns>Array of "ieee-754 format".</returns>
+            <exception cref="T:System.ArgumentNullException">Throws, when source array is null.</exception>
+            <exception cref="T:System.ArgumentException">Throws, when source array is empty.</exception>
+        </member>
+        <member name="M:TransformerInheritance.Transformer.TransformAccordingToRule(System.Double)">
+            <summary>
+            Defines the transformation rules.
+            </summary>
+            <param name="item">The number, that is being transformed.</param>
+            <returns>The resulting transform string.</returns>
+        </member>
+    </members>
+</doc>
